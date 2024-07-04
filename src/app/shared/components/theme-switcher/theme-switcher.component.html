@@ -1,0 +1,9 @@
+<div *ngIf="isActive" (click)="close()" class="back-drop toast-element z-overlay"></div>
+<div [class.active]="isActive" class="switcher topmost-element z-fixed">
+  <div class="switcher-header p-large">
+    <h3>Switcher</h3>
+    <span (click)="close()" class="fa-solid fa-xmark"> </span>
+  </div>
+
+  <div class="switcher-body"></div>
+</div>

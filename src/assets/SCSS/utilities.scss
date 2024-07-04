@@ -1,0 +1,229 @@
+:root {
+  --padding-small: 0.5rem;
+  --padding-medium: 1rem;
+  --padding-large: 1.5rem;
+  --padding-extra-large: 2rem;
+  // --------------------------------------
+  --margin-small: 0.5rem;
+  --margin-medium: 1rem;
+  --margin-large: 1.5rem;
+  --margin-extra-large: 2rem;
+  // --------------------------------------
+  --border-radius-small: 0.25rem;
+  --border-radius-medium: 0.5rem;
+  --border-radius-large: 1rem;
+  --border-radius-circle: 50%;
+  // --------------------------------------
+  --zindex-dropdown: 1000;
+  --zindex-modal: 2000;
+  --zindex-toast: 3000;
+  --zindex-overlay: 4000;
+  --zindex-fixed: 5000;
+  --zindex-behind: -1000;
+  --zindex-hidden: -2000;
+}
+// ----------------------------Padding--------------------------------------
+$padding-sizes: (
+  small: var(--padding-small),
+  medium: var(--padding-medium),
+  large: var(--padding-large),
+  extra-large: var(--padding-extra-large),
+);
+
+@mixin padding-utilities {
+  @each $size, $value in $padding-sizes {
+    .p-#{$size} {
+      padding: $value;
+    }
+    .pt-#{$size} {
+      padding-top: $value;
+    }
+    .pr-#{$size} {
+      padding-right: $value;
+    }
+    .pb-#{$size} {
+      padding-bottom: $value;
+    }
+    .pl-#{$size} {
+      padding-left: $value;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .p-sm-small {
+    padding: 0.75rem;
+  }
+  .p-sm-medium {
+    padding: 1.25rem;
+  }
+  .p-sm-large {
+    padding: 1.75rem;
+  }
+  .p-sm-extra-large {
+    padding: 2.25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .p-md-small {
+    padding: 1rem;
+  }
+  .p-md-medium {
+    padding: 1.5rem;
+  }
+  .p-md-large {
+    padding: 2rem;
+  }
+  .p-md-extra-large {
+    padding: 2.5rem;
+  }
+}
+
+// ----------------------------Margin--------------------------------------
+$margin-sizes: (
+  small: var(--margin-small),
+  medium: var(--margin-medium),
+  large: var(--margin-large),
+  extra-large: var(--margin-extra-large),
+);
+@mixin margin-utilities {
+  @each $size, $value in $margin-sizes {
+    .m-#{$size} {
+      margin: $value;
+    }
+    .mt-#{$size} {
+      margin-top: $value;
+    }
+    .mr-#{$size} {
+      margin-right: $value;
+    }
+    .mb-#{$size} {
+      margin-bottom: $value;
+    }
+    .ml-#{$size} {
+      margin-left: $value;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .m-sm-small {
+    margin: 0.75rem;
+  }
+  .m-sm-medium {
+    margin: 1.25rem;
+  }
+  .m-sm-large {
+    margin: 1.75rem;
+  }
+  .m-sm-extra-large {
+    margin: 2.25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .m-md-small {
+    margin: 1rem;
+  }
+  .m-md-medium {
+    margin: 1.5rem;
+  }
+  .m-md-large {
+    margin: 2rem;
+  }
+  .m-md-extra-large {
+    margin: 2.5rem;
+  }
+}
+
+// ----------------------------Border-radius --------------------------------------
+$border-radius-sizes: (
+  small: (
+    radius: var(--border-radius-small),
+    top-left: var(--border-radius-small),
+    top-right: var(--border-radius-small),
+    bottom-right: var(--border-radius-small),
+    bottom-left: var(--border-radius-small),
+  ),
+  medium: (
+    radius: var(--border-radius-medium),
+    top-left: var(--border-radius-medium),
+    top-right: var(--border-radius-medium),
+    bottom-right: var(--border-radius-medium),
+    bottom-left: var(--border-radius-medium),
+  ),
+  large: (
+    radius: var(--border-radius-large),
+    top-left: var(--border-radius-large),
+    top-right: var(--border-radius-large),
+    bottom-right: var(--border-radius-large),
+    bottom-left: var(--border-radius-large),
+  ),
+  circle: (
+    radius: var(--border-radius-circle),
+    top-left: var(--border-radius-circle),
+    top-right: var(--border-radius-circle),
+    bottom-right: var(--border-radius-circle),
+    bottom-left: var(--border-radius-circle),
+  ),
+);
+@mixin border-radius-utilities {
+  @each $size, $values in $border-radius-sizes {
+    $radius: map-get($values, radius);
+    $top_left: map-get($values, top-left);
+    $top_right: map-get($values, top-right);
+    $bottom_right: map-get($values, bottom-right);
+    $bottom_left: map-get($values, bottom-left);
+
+    .rounded-#{$size} {
+      border-radius: $radius;
+    }
+    .rounded-top-left-#{$size} {
+      border-top-left-radius: $top_left;
+    }
+    .rounded-top-right-#{$size} {
+      border-top-right-radius: $top_right;
+    }
+    .rounded-bottom-right-#{$size} {
+      border-bottom-right-radius: $bottom_right;
+    }
+    .rounded-bottom-left-#{$size} {
+      border-bottom-left-radius: $bottom_left;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .rounded-sm {
+    border-radius: 0.5rem;
+  }
+  .rounded-top-left-sm {
+    border-top-left-radius: 0.5rem;
+  }
+  /* Add other responsive variations as needed */
+}
+// ----------------------------Z-index --------------------------------------
+
+$zindex-values: (
+  dropdown: var(--zindex-dropdown),
+  modal: var(--zindex-modal),
+  toast: var(--zindex-toast),
+  overlay: var(--zindex-overlay),
+  fixed: var(--zindex-fixed),
+  behind: var(--zindex-behind),
+  hidden: var(--zindex-hidden),
+);
+@mixin zindex-utilities {
+  @each $name, $value in $zindex-values {
+    .z-#{$name} {
+      z-index: $value;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .z-dropdown {
+    z-index: 1100;
+  }
+  /* Add other responsive variations as needed */
+}

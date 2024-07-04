@@ -1,0 +1,95 @@
+<!-- Main container for the dashboard -->
+<div
+  [class.active]="paddingActive"
+  [ngClass]="true ? 'box animate__animated animate__fadeIn' : 'box'"
+  class="box z-dropdown"
+>
+  <!-- Header section of the dashboard -->
+  <header
+    class="pl-extra-large d-flex flex-column justify-center"
+    [ngStyle]="{ background: currentTheme === 'dark' ? '#252538' : '#D2D7F0' }"
+  >
+    <!-- Title of the dashboard -->
+    <h1 [ngStyle]="{ color: currentTheme === 'dark' ? 'white' : '#170b6b ' }">
+      <!-- welcome to dashboard -->
+      {{ "DASHBOARD_WELCOME" | translate }}
+    </h1>
+    <!-- <p>home / project dashboard</p> -->
+    <p>{{ "Project_Path" | translate }}</p>
+    <!-- Button to add a new tile -->
+    <button
+      (click)="chartMenuTaggle()"
+      class="btn btn-add-tile p-medium rounded-medium z-overlay align-self-end"
+    >
+      {{ "Add_Tile" | translate }}
+    </button>
+
+    <!-- Tile menu that appears when click add Tile -->
+    <div
+      [ngClass]="
+        tileMenuActive
+          ? 'tile-menu animate__animated animate__fadeInRight'
+          : 'tile-menu tile-menu animate__animated animate__fadeOutRight '
+      "
+      class="tile-menu z-fixed"
+    >
+      <!-- List of chart menu items -->
+      <ul class="d-flex flex-column gap-medium">
+        <!-- Iterates through chartMenuItems array and displays each item -->
+        <ng-container *ngFor="let item of chartMenuItems">
+          <li class="p-medium" (click)="chartMenuItemsSelect(item)">
+            {{ item.name }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </header>
+  <!-- Main content area -->
+  <div class="zee">
+    <main
+      [ngStyle]="{
+      background: currentTheme === 'dark' ? '#252538' : '#D2D7F0',
+
+    }"
+      class="topmost-element pl-small"
+    >
+      <!-- Gridster component for the tile layout -->
+      <gridster
+        class="gri"
+        [ngStyle]="{
+          background: currentTheme === 'dark' ? '#252538' : '#D2D7F0'
+        }"
+        [options]="gridOptions"
+      >
+        <!-- Iterates through items array and displays each grid item -->
+        <gridster-item
+          style="border-radius: 2rem 2rem; background-color: transparent"
+          *ngFor="let item of items"
+          [item]="item"
+        >
+          <!-- Content of each gridster item -->
+          <div
+            [ngStyle]="{
+              background: currentTheme === 'dark' ? '#0E0E23' : 'white'
+            }"
+            class="gridster-item-content d-flex justify-center align-items-center"
+          >
+            {{ item.name }}
+            <!-- Optional header section -->
+            <div
+              *ngIf="item.hasHeader"
+              class="header d-flex justify-center align-items-center"
+            >
+              <span>header</span>
+            </div>
+            <!-- Button to delete the tile -->
+            <button
+              (click)="deleteTile(item)"
+              class="delete fa-solid fa-trash p-medium rounded-circle"
+            ></button>
+          </div>
+        </gridster-item>
+      </gridster>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+
+<div   [class.active]="isActiveInfo" class="notificationsMenu">
+  <div class="notificationsMenu__header">
+    <p>notifications</p>
+    <div>
+      <span>{{ notifications.length }}</span
+      ><span>unread</span>
+    </div>
+  </div>
+  <div class="notificationsMenu__body">
+    <ul  >
+      <ng-container        *ngFor="let item of notifications">
+        <li   *ngIf="notifications.length >0"     >
+          <div class="left">
+            <div class="dot"></div>
+          </div>
+          <div class="middle">
+            <p>
+              {{ item.name }} <span>{{ item.message }}</span>
+            </p>
+            <span class="date">{{ item.date | customDate }}</span>
+          </div>
+          <div  (click)="onMessageDetete(item)"    class="fa-solid fa-xmark close"></div>
+        </li>
+      </ng-container>
+
+    <div  *ngIf="!notifications.length" class="notifi">
+      <i class="fa-regular fa-bell-slash"></i>
+    </div>
+    </ul>
+
+  </div>
+  <div
+
+    class="notificationsMenu__footer"
+  >
+    <button   *ngIf="notifications.length > 0"      >view all</button>
+  </div>
+</div>

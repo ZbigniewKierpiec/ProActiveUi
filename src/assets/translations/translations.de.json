@@ -1,0 +1,13 @@
+{
+  "DASHBOARD_WELCOME": "willkommen im dashboard",
+  "Project_Path": "startseite/projektdashboard",
+  "Add_Tile": "kachel hinzufügen",
+  "Profile_Menu": {
+    "Profile": "profil",
+    "Inbox": "posteingang",
+    "Activity": "aktivität",
+    "Settings": "einstellungen",
+    "Support": "unterstützung",
+    "Log_Out": "abmelden"
+  }
+}

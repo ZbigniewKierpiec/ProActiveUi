@@ -1,0 +1,13 @@
+{
+  "DASHBOARD_WELCOME": "bienvenue sur le tableau de bord",
+  "Project_Path": "accueil/tableau de bord du projet",
+  "Add_Tile": "ajouter une tuile",
+  "Profile_Menu": {
+    "Profile": "profil",
+    "Inbox": "boîte de réception",
+    "Activity": "activité",
+    "Settings": "paramètres",
+    "Support": "support",
+    "Log_Out": "se déconnecter"
+  }
+}

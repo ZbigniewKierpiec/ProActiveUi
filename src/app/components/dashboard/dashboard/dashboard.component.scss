@@ -1,0 +1,123 @@
+@import "/src/styles.scss";
+
+/* Styling for the main container box */
+.box {
+  position: relative;
+  background-color: var(--box-backround);
+  overflow: hidden;
+  transition: padding 0.3s linear;
+  &.active {
+    padding-left: 165px;
+  }
+}
+/* Styling for the header section */
+header {
+  position: relative;
+  height: 13.5rem;
+
+  h1,
+  p {
+    font-size: 2.7rem;
+    text-transform: capitalize;
+    color: #170b6b;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: #8c9ac7;
+  }
+  /* Button styling for adding a new tile */
+}
+.btn-add-tile {
+  color: white;
+  text-transform: capitalize;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background-color: var(--btn-add-tile);
+}
+/* Styling for the tile menu */
+.tile-menu {
+  position: absolute;
+  right: 4rem;
+  width: 30rem;
+  height: 30rem;
+  bottom: -30rem;
+
+  overflow: hidden;
+  background-color: inherit;
+  ul {
+    height: 100%;
+  }
+  li {
+    background-color: black;
+    height: 4rem;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &:nth-child(1) {
+      border-top-left-radius: var(--border-radius-medium);
+      border-top-right-radius: var(--border-radius-medium);
+    }
+
+    &:last-child {
+      border-bottom-left-radius: var(--border-radius-medium);
+      border-bottom-right-radius: var(--border-radius-medium);
+    }
+  }
+}
+
+/* Styling for the main content area */
+.topmost-element {
+  width: 100% !important;
+  display: block;
+}
+/* Styling for the gridster item content */
+.gridster-item-content {
+  max-width: 100%;
+  position: relative !important;
+  height: 100%;
+
+  box-sizing: border-box !important;
+
+  pointer-events: none;
+
+  font-size: 3rem;
+  cursor: pointer;
+
+  .header {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 50px;
+    background-color: black;
+    color: white;
+  }
+}
+/* Styling for buttons */
+
+/* Styling for the delete button */
+.delete {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: black;
+  border: none;
+  outline: none;
+  pointer-events: all;
+  transition: all 0.1s linear;
+  &:hover {
+    color: #ff0000;
+  }
+}
+.gridster-item {
+  height: auto; /* Adjust height as needed */
+}
+.grid-container {
+  position: relative;
+  width: 100% !important; /* Or a specific max-width */
+  overflow: hidden; /* Prevent overflow */
+  background-color: red !important;
+}

@@ -1,0 +1,193 @@
+.notificationsMenu {
+  min-height: 262px;
+  max-height: 400px;
+
+  box-sizing: border-box;
+  background-color: inherit;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 58px 1fr 58px;
+  -webkit-box-shadow: -6px 5px 20px -1px rgba(0, 0, 0, 0.8);
+  box-shadow: -6px 5px 20px -1px rgba(0, 0, 0, 0.8);
+  z-index: 999999999999999999999999999999999999999999999999999 !important;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s linear;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__header {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 0 1.6rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.068);
+    div {
+      padding: 0 0.55rem;
+      text-transform: capitalize;
+      font-size: 1.2rem;
+      color: white;
+      width: 57px;
+      height: 20px;
+      background-color: #f1388b;
+      border-radius: 999em 999em 999em 999em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 20px;
+      span {
+        font-weight: 800;
+        &:nth-child(2) {
+          letter-spacing: -0.5px;
+        }
+      }
+    }
+  }
+  &__body {
+    height: 100% !important;
+    overflow: hidden !important;
+
+    ul {
+      position: relative;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      overflow-y: scroll;
+      transition: all 0.1s linear;
+      li {
+        width: 100%;
+        min-height: 67px;
+        padding-left: 10px;
+        padding-right: 25px;
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.123);
+
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(195, 175, 175, 0.171);
+        }
+        .left {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          background-color: #c0c0c0;
+          border-radius: 0.9rem;
+          margin-right: 1rem;
+
+          .dot {
+            z-index: 999 !important;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: #fff;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: -1 !important;
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              background-color: #19b159;
+            }
+          }
+        }
+
+        .middle {
+          width: 200px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+
+          p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: inherit !important;
+          }
+          span {
+            color: inherit;
+          }
+          .date {
+            color: #8f8fb1;
+          }
+        }
+
+        div.close {
+          display: block;
+          font-size: 1.7rem;
+          margin-left: auto;
+          color: #8f8fb1;
+          cursor: pointer;
+          padding: 0.5rem;
+        }
+      }
+    }
+    .notifi {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #fdebf3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      i {
+        color: #f1388b;
+      }
+
+      &::before {
+        content: "No New Notifications";
+        font-size: 1.4rem;
+        font-weight: 600;
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: inherit;
+      }
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      border: none;
+      outline: none;
+      border-radius: 0.3rem;
+      text-transform: capitalize;
+      width: 318px;
+      height: 36px;
+      background-color: #6259ca;
+      color: white;
+    }
+  }
+}

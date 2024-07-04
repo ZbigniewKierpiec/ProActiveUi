@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "/src/assets/SCSS/reset.scss";
+@import "/src/assets/SCSS/mixin.scss";
+@import "/src/assets/SCSS/variables.scss";
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "assets/Fonts/fonts.scss";
+@import "/src/assets/Animations/animations.scss";
+@import "/src/assets/SCSS/utilities.scss";
+@include padding-utilities;
+@include margin-utilities;
+@include border-radius-utilities;
+@include zindex-utilities;
+@include flex-utilities;
+body.light-theme {
+  background-color: white;
+  color: black;
+}
+
+body.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+ul.dark-theme {
+  background-color: #0e0e23;
+}
+ul.light-theme {
+  background-color: white;
+}

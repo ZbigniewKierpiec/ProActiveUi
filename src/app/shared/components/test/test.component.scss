@@ -1,0 +1,154 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+.container {
+  --nav-color: #1e8001;
+
+}
+.side-nav,
+.nav-menu {
+  overflow: hidden !important;
+  margin-bottom: 4rem;
+  height: 30rem;
+  height: 100vh;
+}
+.side-nav {
+  position: absolute;
+  left: 0;
+}
+
+.side-nav .nav-menu {
+  list-style: none;
+  padding: 40px 0;
+  width: 200px;
+
+  background-color: var(--nav-color);
+  position: relative;
+  transition: all 0.3s linear;
+  &.active {
+    transition: all 0.3s linear 1s;
+    width: 100px;
+  }
+}
+.side-nav .nav-item {
+  margin-top: 1rem;
+  width: 100%;
+
+  padding: 8px 20px;
+  margin-left: 1rem;
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  align-items: center;
+  z-index: 4444;
+  .icon-box {
+    width: 2rem;
+    height: 2rem;
+
+    display: grid;
+    justify-content: center;
+  }
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+  color: black;
+  pointer-events: none;
+  font-size: 1.2rem;
+  z-index: 3;
+}
+
+.a-menu-text {
+  // line-height: 1.5rem;
+  width: 7rem;
+  height: 3rem;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 0.3rem;
+  color: black;
+  z-index: 3;
+}
+
+.menu-text {
+  font-family: monospace;
+  padding: 0 20px;
+  font-size: 1rem;
+  transition: all 0.3s linear 0.3s;
+  font-weight: 700;
+  text-align: right;
+  opacity: 1;
+  transition: all 0.3s linear 0.5s;
+  color: white;
+  color: black;
+  &.active {
+    transition: all 0.1s linear;
+    transform: translateX(150px);
+    visibility: hidden;
+    opacity: 0;
+  }
+  &.active2 {
+    color: black;
+  }
+}
+
+.slider {
+  position: absolute;
+  // right: 0;
+  transition: all 0.4s linear;
+  width: 96%;
+  height: 4rem;
+  padding: 10px 20px;
+  background-color: white;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin-left: 0.5rem;
+
+  a {
+    visibility: hidden;
+  }
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 150%;
+  width: 20px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 20px 0 0 #fff;
+}
+.slider::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 100%;
+  right: 0;
+  height: 150%;
+  width: 20px;
+  border-top-right-radius: 25px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+.logo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    display: block;
+    width: 60%;
+    object-fit: cover;
+  }
+}

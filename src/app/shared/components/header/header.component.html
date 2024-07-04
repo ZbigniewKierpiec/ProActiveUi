@@ -1,0 +1,222 @@
+<!-- Header Component -->
+
+<header
+  [ngStyle]="{ background: currentTheme === 'dark' ? '#0E0E23' : 'white' }"
+  [ngClass]="{ 'active-header': isActiveHeader }"
+  class="header z-overlay"
+>
+  <!-- Main Header Container -->
+  <div class="main-container">
+    <!-- Header Content Left -->
+    <div class="main-container__left d-flex justify-center align-items-center">
+      <app-hamburger-menu></app-hamburger-menu>
+    </div>
+    <!-- Header Content Right -->
+    <div class="main-container__right">
+      <!-- Theme Mode Toggle -->
+      <div (click)="onThemeChange()" class="theme-mode">
+        <i class="fa-solid {{ themeActive ? 'fa-sun' : 'fa-moon ' }}"></i>
+      </div>
+      <!-- Country Selection -->
+      <div (click)="onCountrySelection()" class="country-selection">
+        <div class="flag">
+          <img class="rounded-circle" src="{{ languages }}" alt="" />
+        </div>
+
+        <div [class.active]="isActiveList" class="country-list">
+          <ul
+            [ngClass]="currentTheme === 'dark' ? 'dark-theme' : 'light-theme'"
+            class="header-country-list"
+          >
+            <ng-container *ngFor="let item of country">
+              <li
+                class="d-flex align-items-center"
+                [class.active]="isSame === item.id"
+                (click)="choseCountry(item)"
+              >
+                <img
+                  class="ml-large mr-extra-large rounded-circle"
+                  src="{{ item.flag }}"
+                  alt="{{ item.name }}"
+                />
+                <span>{{ item.name }}</span>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+      <!-- Full Screen Toggle -->
+
+      <div (click)="toggleFullScreen()" class="full-screen">
+        <i
+          class="fa-solid {{ fullScreenMode ? 'fa-compress' : 'fa-expand' }}"
+        ></i>
+      </div>
+      <!-- Notifications -->
+      <div (click)="onShowNotifi()" class="notifications">
+        <i class="fa-regular fa-bell"></i>
+        <div class="notifications--item">{{ notifications.length }}</div>
+      </div>
+      <!-- Profile Menu Toggle -->
+      <div (click)="onProfileShow()" class="profile">
+        <div class="profile__item"></div>
+      </div>
+      <!-- Settings Toggle -->
+      <div (click)="onSwitcherChange()" class="settings">
+        <span class="fa-solid fa-gear"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Profile Menu -->
+  <div
+    [class.active]="profileActive"
+    [ngClass]="currentTheme === 'dark' ? 'dark-theme' : 'light-theme'"
+    class="header__profileMenu z-fixed"
+  >
+    <div class="header__profileMenu__head">
+      <h1 class="title">James Smith</h1>
+      <p class="descriptions">web designer</p>
+    </div>
+    <div class="header__profileMenu__body">
+      <ul>
+        <ng-container>
+          <li class="pl-medium pr-medium d-flex justify-between">
+            <div
+              class="left d-flex justify-content-flex-end align-items-center gap-medium"
+            >
+              <span class="fa-regular fa-user left__icon"></span>
+              <span>{{ "Profile" | translate }}</span>
+
+            </div>
+            <div
+              class="right d-flex justify-content-flex-start align-items-center"
+            >
+              <!-- <div class="right__box rounded-small"></div> -->
+            </div>
+          </li>
+
+          <li class="pl-medium pr-medium d-flex justify-between">
+            <div
+              class="left d-flex justify-content-flex-end align-items-center gap-medium"
+            >
+              <span class="fa-solid fa-inbox left__icon"></span>
+              <span>{{ "Inbox" | translate}}</span>
+            </div>
+            <div
+              class="right d-flex justify-content-flex-start align-items-center"
+            >
+              <div class="right__box rounded-small"></div>
+            </div>
+          </li>
+
+          <li class="pl-medium pr-medium d-flex justify-between">
+            <div
+              class="left d-flex justify-content-flex-end align-items-center gap-medium"
+            >
+              <span class="fa-regular fa-compass left__icon"></span>
+              <span>{{ "Activity" | translate}}</span>
+            </div>
+            <div
+              class="right d-flex justify-content-flex-start align-items-center"
+            >
+              <!-- <div class="right__box rounded-small"></div> -->
+            </div>
+          </li>
+
+          <li class="pl-medium pr-medium d-flex justify-between">
+            <div
+              class="left d-flex justify-content-flex-end align-items-center gap-medium"
+            >
+              <span class="fa-solid fa-gear left__icon"></span>
+              <span>{{ "Settings" | translate}}</span>
+            </div>
+            <div
+              class="right d-flex justify-content-flex-start align-items-center"
+            >
+              <!-- <div class="right__box rounded-small"></div> -->
+            </div>
+          </li>
+
+          <li class="pl-medium pr-medium d-flex justify-between">
+            <div
+              class="left d-flex justify-content-flex-end align-items-center gap-medium"
+            >
+              <span class="fa-solid fa-headphones-simple left__icon"></span>
+              <span>{{  "Support" | translate}}</span>
+            </div>
+            <div
+              class="right d-flex justify-content-flex-start align-items-center"
+            >
+              <!-- <div class="right__box rounded-small"></div> -->
+            </div>
+          </li>
+
+          <li class="pl-medium pr-medium d-flex justify-between">
+            <div
+              class="left d-flex justify-content-flex-end align-items-center gap-medium"
+            >
+              <span class="fa-solid fa-power-off left__icon"></span>
+              <span>{{ "Log_Out" | translate}}</span>
+            </div>
+            <div
+              class="right d-flex justify-content-flex-start align-items-center"
+            >
+              <!-- <div      class="right__box rounded-small"></div> -->
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <!-- Notifications Menu -->
+  <div [class.active]="isActiveNotifi" class="header__notificationsMenu">
+    <div
+      class="header__notificationsMenu__header pl-large pr-large d-flex justify-between align-items-center"
+    >
+      <p>notifications</p>
+      <div>
+        <span>{{ notifications.length }}</span
+        ><span>unread</span>
+      </div>
+    </div>
+    <div class="header__notificationsMenu__body">
+      <ul>
+        <ng-container *ngFor="let item of notifications">
+          <li
+            class="pl-medium pr-large d-flex align-items-center"
+            *ngIf="notifications.length > 0"
+          >
+            <div class="left mr-medium rounded-medium">
+              <div class="dot rounded-circle z-dropdown"></div>
+            </div>
+            <div class="middle">
+              <p>
+                {{ item.name }}<span>{{ item.message }}</span>
+              </p>
+
+              <span class="date">{{ item.date | customDate }}</span>
+            </div>
+            <div
+              (click)="onMessageDetete(item)"
+              class="fa-solid fa-xmark close p-medium"
+            ></div>
+          </li>
+        </ng-container>
+
+        <div
+          *ngIf="!notifications.length"
+          class="notifi rounded-circle d-flex align-items-center justify-center"
+        >
+          <i class="fa-regular fa-bell-slash"></i>
+        </div>
+      </ul>
+    </div>
+    <div
+      class="header__notificationsMenu__footer d-flex align-items-center justify-center"
+    >
+      <button class="rounded-small" *ngIf="notifications.length > 0">
+        view all
+      </button>
+    </div>
+  </div>
+</header>

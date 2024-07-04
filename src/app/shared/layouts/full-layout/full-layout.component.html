@@ -1,0 +1,25 @@
+<app-theme-switcher></app-theme-switcher>
+<div class="full-layout overlay-element">
+  <!-- Header -->
+  <app-header></app-header>
+  <!-- /Header -->
+
+  <!-- Sidemenu -->
+  <app-sidemenu></app-sidemenu>
+  <!-- Sidemenu -->
+
+  <!-- Main Content -->
+
+  <main [class.active]="isActive" class="main">
+    <router-outlet></router-outlet>
+
+    <!--
+   <ng-container >
+    <app-dashboard *ngIf="receivedUrl === 'dashboard'"    ></app-dashboard>
+   </ng-container> -->
+  </main>
+
+  <!-- /Main Content -->
+</div>
+
+<app-back-to-top-btn></app-back-to-top-btn>

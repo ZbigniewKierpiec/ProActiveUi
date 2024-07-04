@@ -1,0 +1,13 @@
+{
+  "DASHBOARD_WELCOME": "welcome to dashboard",
+  "Project_Path": "home/project dashboard",
+  "Add_Tile": "add tile",
+  "Profile_Menu": {
+    "Profile": "profile",
+    "Inbox": "inbox",
+    "Activity": "activity",
+    "Settings": "settings",
+    "Support": "support",
+    "Log_Out": "log out"
+  }
+}

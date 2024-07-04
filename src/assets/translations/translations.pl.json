@@ -1,0 +1,13 @@
+{
+  "DASHBOARD_WELCOME": "witaj na tablicy rozdzielczej",
+  "Project_Path": "dom/projekt tablica rozdzielcza",
+  "Add_Tile": "dodaj kafelek",
+  "Profile_Menu": {
+    "Profile": "profil",
+    "Inbox": "skrzynka odbiorcza",
+    "Activity": "aktywność",
+    "Settings": "ustawienia",
+    "Support": "wsparcie",
+    "Log_Out": "wyloguj się"
+  }
+}
